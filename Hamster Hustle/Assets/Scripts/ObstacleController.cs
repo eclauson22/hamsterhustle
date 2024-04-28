@@ -4,7 +4,7 @@ public class ObstacleGenerator : MonoBehaviour
 {
     public GameObject obstaclePrefab;
     public Transform player;
-    public float spawnDistance = 15f;
+    public float spawnDistance = 5f;
     public float spawnHeight = 0f;
 
     private static bool hasStarted = false;
@@ -15,6 +15,8 @@ public class ObstacleGenerator : MonoBehaviour
         {
             InvokeRepeating("GenerateObstacle", 0f, 2f);
             hasStarted = true;
+
+            Debug.Log("Started");
         }
     }
 
