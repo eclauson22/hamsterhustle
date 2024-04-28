@@ -26,6 +26,14 @@ public class ObstacleGenerator : MonoBehaviour
         obstacleInstance.transform.Translate(Vector3.right * randomOffset);
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        transform.position += new Vector3(0, 0, -3) * Time.deltaTime;
+    }
+
+ 
+
 }
 
 
