@@ -1,5 +1,6 @@
 {
   "dependencies": {
+<<<<<<< HEAD
     "com.unity.collab-proxy": {
       "version": "2.3.1",
       "depth": 0,
@@ -144,6 +145,8 @@
       },
       "url": "https://packages.unity.com"
     },
+=======
+>>>>>>> main
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,
