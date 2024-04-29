@@ -18,11 +18,14 @@ public class Move : MonoBehaviour
         transform.position += new Vector3(0, 0, -3) * Time.deltaTime;        
     }
 
+
+    //This code is supposed to delete environment left behind so that it does not take up too much memory
+    // For some reason this is having a bug with the obstacles
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Destroy"))
         {
-            Destroy(gameObject);
+           // Destroy(gameObject);
         }
     }
 }
