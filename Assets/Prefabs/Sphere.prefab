@@ -119,3 +119,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 2480693945148698453}
+  player: {fileID: 0}
+  spawnDistance: 5
+  spawnHeight: 0

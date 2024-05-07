@@ -22,7 +22,7 @@ public class ObstacleGenerator : MonoBehaviour
 
     void GenerateObstacle()
     {
-        Vector3 spawnPosition = player.position + player.forward * spawnDistance + Vector3.up * spawnHeight;
+        Vector3 spawnPosition = player.position + player.forward; // * spawnDistance + Vector3.up * spawnHeight;
         GameObject obstacleInstance = Instantiate(obstaclePrefab, spawnPosition, Quaternion.identity);
         float randomOffset = Random.Range(-5f, 5f);
         obstacleInstance.transform.Translate(Vector3.right * randomOffset);
