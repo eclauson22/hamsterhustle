@@ -8,15 +8,15 @@ public class SectionTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Trigger"))
-        {
-            Debug.Log("hit ending trigger");
-            Instantiate(Environment, new Vector3(-3, 2, 10), Quaternion.identity);
-        }
+        //if (other.gameObject.CompareTag("Trigger"))
+        //{
+        //    Debug.Log("hit ending trigger");
+        //    Instantiate(Environment, new Vector3(-3, 2, 10), Quaternion.identity);
+        //}
 
         if (other.gameObject.CompareTag("Obstacle"))
         {
-            Debug.Log("Collision");
+            Debug.Log("Collision with obstacle!");
             // Destroy(other.gameObject); // Destroy the obstacle
             GameManager.obstaclesHit++; // Increment the count of obstacles hit
         }

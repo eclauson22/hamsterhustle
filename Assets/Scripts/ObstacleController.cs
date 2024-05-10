@@ -24,7 +24,9 @@ public class ObstacleGenerator : MonoBehaviour
     void GenerateObstacle()
     {
         // Fixed spawn position
-        Vector3 fixedSpawnPosition = new Vector3(50f, 14.5f, 24f); 
+        Vector3 fixedSpawnPosition = new Vector3(50f, 14.5f, 24f);
+        // Vector3 fixedSpawnPosition = new Vector3(50f, 23.8f, 22f);
+        // Vector3 fixedSpawnPosition = new Vector3(50f, 19f, 24f);
 
         // Instantiating the obstacle at fixed spawn position
         GameObject obstacleInstance = Instantiate(obstaclePrefab, fixedSpawnPosition, Quaternion.identity);
