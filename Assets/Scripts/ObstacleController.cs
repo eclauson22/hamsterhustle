@@ -31,10 +31,10 @@ public class ObstacleGenerator : MonoBehaviour
         // Instantiating the obstacle at fixed spawn position
         GameObject obstacleInstance = Instantiate(obstaclePrefab, fixedSpawnPosition, Quaternion.identity);
 
-        // Wheel becomes the obstacle's parent
+        // Wheel as obstacle's parent
         obstacleInstance.transform.parent = wheel;
 
-        // Rotate the obstacle 90 degrees around the x-axis
+        // Rotating obstacle 90 degrees around x-axis
         obstacleInstance.transform.Rotate(Vector3.right, 90f);
 
         // Randomly offset the obstacle to one of the three lanes
@@ -44,7 +44,7 @@ public class ObstacleGenerator : MonoBehaviour
         Vector3 obstaclePosition = fixedSpawnPosition + Vector3.right * laneOffset;
         obstacleInstance.transform.position = obstaclePosition;
 
-        Debug.Log("Obstacle spawned at fixed position: " + fixedSpawnPosition + ", in lane: " + laneOffset);
+        // Debug.Log("Obstacle spawned in lane: " + laneOffset);
     }
 
 
