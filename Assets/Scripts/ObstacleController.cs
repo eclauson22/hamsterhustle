@@ -3,7 +3,7 @@ using UnityEngine;
 public class ObstacleGenerator : MonoBehaviour
 {
     public GameObject obstaclePrefab;
-    public Transform player;
+    public Transform wheel;
     public float spawnDistance = 3f;
     public float spawnHeight = 1f;
 
@@ -20,23 +20,42 @@ public class ObstacleGenerator : MonoBehaviour
         }
     }
 
+
     void GenerateObstacle()
     {
-        Vector3 spawnPosition = player.position + player.forward; // * spawnDistance + Vector3.up * spawnHeight; //the commented out code make them above the hamster
-        spawnPosition.y -= 1.2f;
-        GameObject obstacleInstance = Instantiate(obstaclePrefab, spawnPosition, Quaternion.identity);
-        int randomOffset = Random.Range(-1, 1); //choose between -1, 0, and 1, for three lanes instead of any float in between -1 and 1. used to also be between -5 and 5
-        obstacleInstance.transform.Translate(Vector3.right * randomOffset);// could multiply random_offset by 1.2 or something to increase the size of lanes, more left or more right. -1 becomes -1.3 left or 1 becomes 1.3 right
+        // Fixed spawn position
+        Vector3 fixedSpawnPosition = new Vector3(50f, 14.5f, 24f);
+        // Vector3 fixedSpawnPosition = new Vector3(50f, 23.8f, 22f);
+        // Vector3 fixedSpawnPosition = new Vector3(50f, 19f, 24f);
+
+        // Instantiating the obstacle at fixed spawn position
+        GameObject obstacleInstance = Instantiate(obstaclePrefab, fixedSpawnPosition, Quaternion.identity);
+
+        // Wheel as obstacle's parent
+        obstacleInstance.transform.parent = wheel;
+
+        // Rotating obstacle 90 degrees around x-axis
+        obstacleInstance.transform.Rotate(Vector3.right, 90f);
+
+        // Randomly offset the obstacle to one of the three lanes
+        int laneOffset = Random.Range(-2, 4);
+
+        // Putting the obstacle in one of the randomized lanes
+        Vector3 obstaclePosition = fixedSpawnPosition + Vector3.right * laneOffset;
+        obstacleInstance.transform.position = obstaclePosition;
+
+        // Debug.Log("Obstacle spawned in lane: " + laneOffset);
     }
 
-    // Update is called once per frame
+
+
+    // Update called once per frame
     void Update()
     {
-        transform.position += new Vector3(0, 0, -3) * Time.deltaTime;
+        // Don't need to update the position of the obstacles here
+        // - They'll move with the wheel because they're children of the wheel
     }
-
- 
-
 }
+
 
 

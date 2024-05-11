@@ -1,0 +1,15 @@
+This is for record keeping in case of merge conflicts with the omission of these from the .meta files
+
+hamsterhustletheme.mp3.meta
+<<<<<<< Updated upstream
+guid: 8963ed43da9a14e20bc08eb91d7b78da
+=======
+gui <old one>
+>>>>>>> Stashed changes
+
+music.meta
+<<<<<<< Updated upstream
+guid: d0e11d702ae2e47cda4299a2120072db
+=======
+gui: <old one>
+>>>>>>> Stashed changes
