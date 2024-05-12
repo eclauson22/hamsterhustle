@@ -3,9 +3,12 @@ using UnityEngine;
 public class ObstacleGenerator : MonoBehaviour
 {
     public GameObject obstaclePrefab;
+    public GameObject powerUpPrefab; 
     public Transform wheel;
     public float spawnDistance = 3f;
     public float spawnHeight = 1f;
+    public float obstacleProbability = 0.7f; // Probability of spawning an obstacle (vs. a power-up)
+
 
     private static bool hasStarted = false;
 
@@ -25,27 +28,30 @@ public class ObstacleGenerator : MonoBehaviour
     {
         // Fixed spawn position
         Vector3 fixedSpawnPosition = new Vector3(50f, 14.5f, 24f);
-        // Vector3 fixedSpawnPosition = new Vector3(50f, 23.8f, 22f);
-        // Vector3 fixedSpawnPosition = new Vector3(50f, 19f, 24f);
 
-        // Instantiating the obstacle at fixed spawn position
-        GameObject obstacleInstance = Instantiate(obstaclePrefab, fixedSpawnPosition, Quaternion.identity);
+        // Randomly determine if we should spawn an obstacle or a power-up
+        GameObject collectiblePrefab = Random.value < obstacleProbability ? obstaclePrefab : powerUpPrefab;
 
-        // Wheel as obstacle's parent
-        obstacleInstance.transform.parent = wheel;
+        // Instantiate the collectible at the fixed spawn position
+        GameObject collectibleInstance = Instantiate(collectiblePrefab, fixedSpawnPosition, Quaternion.identity);
 
-        // Rotating obstacle 90 degrees around x-axis
-        obstacleInstance.transform.Rotate(Vector3.right, 90f);
+        // Parent the collectible to the wheel
+        collectibleInstance.transform.parent = wheel;
 
-        // Randomly offset the obstacle to one of the three lanes
+        // Rotate the collectible 90 degrees around the x-axis
+        collectibleInstance.transform.Rotate(Vector3.right, 90f);
+
+        // Randomly offset the collectible to one of the three lanes
         int laneOffset = Random.Range(-2, 4);
 
-        // Putting the obstacle in one of the randomized lanes
-        Vector3 obstaclePosition = fixedSpawnPosition + Vector3.right * laneOffset;
-        obstacleInstance.transform.position = obstaclePosition;
+        // Position the collectible in one of the randomized lanes
+        Vector3 collectiblePosition = fixedSpawnPosition + Vector3.right * laneOffset;
+        collectibleInstance.transform.position = collectiblePosition;
 
-        // Debug.Log("Obstacle spawned in lane: " + laneOffset);
+        string type = collectiblePrefab == obstaclePrefab ? "Obstacle" : "Power-up";
+        Debug.Log(type + " spawned in lane: " + laneOffset);
     }
+
 
 
 
