@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 // Game manager is a singleton class: only one instance across the game
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
-
+    public TextMeshProUGUI countText;
     public static GameManager Instance
     {
         get
@@ -20,6 +21,11 @@ public class GameManager : MonoBehaviour
             }
             return instance;
         }
+    }
+
+    void Start()
+    {
+        SetCountText();
     }
 
     public int obstaclesHit = 0; 
@@ -40,14 +46,27 @@ public class GameManager : MonoBehaviour
     public void HandleObstacleCollision()
     {
         obstaclesHit++; 
+        SetCountText();
         Debug.Log("Obstacle hit! Total obstacles hit: " + obstaclesHit);
 
         if (obstaclesHit == 3)
         {
+            EndGame();
             Debug.Log("All lives lost");
             // Add more here for what happens when all lives are lost
         }
     }
+
+    void SetCountText()
+    {
+        countText.text = "Score: " + obstaclesHit.ToString();
+    }
+
+    void EndGame()
+    {
+        countText.text = "Level Completed!";
+    }
+
 }
 
 
