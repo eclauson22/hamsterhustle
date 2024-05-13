@@ -35,13 +35,21 @@ public class PlayerController : MonoBehaviour
         Vector2 movementVector = movementValue.Get<Vector2>();
         movementX = movementVector.x;   
     }
-
+    public float delay = 1f;
     //float velocity;
     void OnJump()
     {
         //velocity = Mathf.Sqrt(jumping_height * -2 * (Physics.gravity.y * gravityScale));
         rb.AddForce(Vector3.up * jumping_height, ForceMode.VelocityChange);
+        StartCoroutine(ExecuteAfterDelay(delay));
     }
+
+    IEnumerator ExecuteAfterDelay(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            // Code to execute after the delay
+            Debug.Log("Action executed after " + delay + " seconds.");
+        }
 
     //float gravityScale = 5;
     private void FixedUpdate() 
