@@ -37,21 +37,29 @@ public class ObstacleGenerator : MonoBehaviour
         // Randomly determine if we should spawn an obstacle or a power-up
         GameObject collectiblePrefab;
         float randomValue = Random.value;
-        if (randomValue < obstacleProbability)
+        if (randomValue < 0.6f)
         {
-            // Spawn an obstacle
+            // Spawn a bad object
             collectiblePrefab = Random.value < 0.5f ? twigPrefab : rockPrefab;
         }
         else
         {
             // Spawn a power-up
-            if (randomValue < obstacleProbability + redbullProbability)
+            float powerUpRandomValue = Random.value;
+            if (powerUpRandomValue < 0.2f)
             {
+                // Spawn a red bull
                 collectiblePrefab = redbullPrefab;
+            }
+            else if (powerUpRandomValue < 0.6f)
+            {
+                // Spawn cheese
+                collectiblePrefab = cheesePrefab;
             }
             else
             {
-                collectiblePrefab = Random.value < 0.5f ? cheesePrefab : carrotPrefab;
+                // Spawn carrot
+                collectiblePrefab = carrotPrefab;
             }
         }
 
@@ -73,6 +81,9 @@ public class ObstacleGenerator : MonoBehaviour
 
         string type = collectiblePrefab == twigPrefab || collectiblePrefab == rockPrefab ? "Obstacle" : "Power-up";
         Debug.Log(type + " spawned in lane: " + laneOffset);
+
+        // Destroy the collectible after 10 seconds
+        Destroy(collectibleInstance, 10f);
     }
 
 
