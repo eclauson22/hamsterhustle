@@ -22,6 +22,14 @@ public class SectionTrigger : MonoBehaviour
             gameManager.HandleObstacleCollision();
             Destroy(other.gameObject); // Destroy the obstacle
         }
+
+        if (other.gameObject.CompareTag("bad object"))
+        {
+            Debug.Log("Collision with obstacle!");
+            //wheelBehavior.IncreaseSpeed(); 
+            gameManager.BadObstacleCollision();
+            Destroy(other.gameObject); // Destroy the obstacle
+        }
     }
 
 }

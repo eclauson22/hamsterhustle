@@ -57,6 +57,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //this is the same thing and handleobstacle collision, but it takes away from the score for bad objects
+    public void BadObstacleCollision()
+    {
+        obstaclesHit--;
+        SetCountText();
+    }
+
     void SetCountText()
     {
         countText.text = "Score: " + obstaclesHit.ToString();
