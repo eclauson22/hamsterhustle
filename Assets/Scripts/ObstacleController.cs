@@ -83,7 +83,7 @@ public class ObstacleGenerator : MonoBehaviour
         Debug.Log(type + " spawned in lane: " + laneOffset);
 
         // Destroy the collectible after 10 seconds
-        Destroy(collectibleInstance, 10f);
+        Destroy(collectibleInstance, 12f);
     }
 
 
