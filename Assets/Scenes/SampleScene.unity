@@ -38,7 +38,11 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
+<<<<<<< Updated upstream
   m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+=======
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+>>>>>>> Stashed changes
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -437,7 +441,11 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707182137}
+<<<<<<< Updated upstream
   m_Mesh: {fileID: 1768248854}
+=======
+  m_Mesh: {fileID: 1867537009}
+>>>>>>> Stashed changes
 --- !u!114 &707182140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4761,7 +4769,11 @@ MonoBehaviour:
     m_AreaError: 15
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
+<<<<<<< Updated upstream
   m_Mesh: {fileID: 1768248854}
+=======
+  m_Mesh: {fileID: 1867537009}
+>>>>>>> Stashed changes
   m_VersionIndex: 8
   m_IsSelectable: 1
   m_SelectedFaces: 
@@ -4926,6 +4938,7 @@ GameObject:
   - component: {fileID: 861400709}
   - component: {fileID: 861400716}
   - component: {fileID: 861400715}
+  - component: {fileID: 861400717}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5070,7 +5083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bc7afbdff899ba46a91185eed2da057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move_speed: 10
+  move_speed: 5
   jumping_height: 10
 --- !u!114 &861400716
 MonoBehaviour:
@@ -5102,6 +5115,18 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &861400717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861400708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e595170d49e3404f80680e4b8e1de86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &879856444
 GameObject:
   m_ObjectHideFlags: 0
@@ -5361,7 +5386,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.05033013, y: -0, z: -0, w: 0.9987327}
-  m_LocalPosition: {x: 50, y: 5.1, z: 8.53}
+  m_LocalPosition: {x: 50, y: 5.1, z: 6.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5700,6 +5725,7 @@ CapsuleCollider:
   m_Height: 0.28
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
 --- !u!1 &1687321489 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 646ed43bf5160468d88ca79794aa8541, type: 3}
@@ -5781,12 +5807,19 @@ PrefabInstance:
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46c42962631184d18bd6491d55f56d76, type: 3}
 --- !u!43 &1768248854
+=======
+--- !u!43 &1867537009
+>>>>>>> Stashed changes
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_Name: (Clone)(Clone)
+=======
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)
+>>>>>>> Stashed changes
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
