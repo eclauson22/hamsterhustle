@@ -11,21 +11,21 @@ public class WheelBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        RotationSpeed = -10;// = sectionTrigger.WheelSpeed;
+        RotationSpeed = -15;// = sectionTrigger.WheelSpeed;
     }  
 
     void Update()
     {  
         count += 1;
-        if (count == 1000)
+        if (count == 500)
         {
-            Debug.Log("count hit 1000, speed increased");
+            Debug.Log("count hit 500, speed increased");
             RotationSpeed = RotationSpeed - 1;
             count = 0;
         }
-        //RotationSpeed = sectionTrigger.WheelSpeed;
-        //Debug.Log("Value from Script1: " + sectionTrigger.WheelSpeed);
-       // RotationSpeed = sectionTrigger.WheelSpeed;
+        // RotationSpeed = sectionTrigger.WheelSpeed;
+        // Debug.Log("Value from Script1: " + sectionTrigger.WheelSpeed);
+        // RotationSpeed = sectionTrigger.WheelSpeed;
         transform.Rotate(0f, RotationSpeed * Time.deltaTime, 0f, Space.Self);
     }
 }
