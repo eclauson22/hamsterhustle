@@ -7,7 +7,7 @@ TagManager:
   - Destroy
   - Trigger
   - Obstacle
-  - bad object
+  - PowerUp
   layers:
   - Default
   - TransparentFX

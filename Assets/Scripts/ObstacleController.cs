@@ -37,34 +37,44 @@ public class ObstacleGenerator : MonoBehaviour
         // Randomly determine if we should spawn an obstacle or a power-up
         GameObject collectiblePrefab;
         float randomValue = Random.value;
-        if (randomValue < obstacleProbability)
+
+        // 50% chance of spawning an obstacle, as opposed to a power-up
+        if (randomValue < 0.5f)
         {
-            // Spawn an obstacle
+            // Spawn an obstacle: equal chance of spawning each
             collectiblePrefab = Random.value < 0.5f ? twigPrefab : rockPrefab;
         }
         else
         {
             // Spawn a power-up
-            if (randomValue < obstacleProbability + redbullProbability)
+            float powerUpRandomValue = Random.value;
+            if (powerUpRandomValue < 0.2f)
             {
+                // Spawn a red bull: 20% chance out of power-up pool
                 collectiblePrefab = redbullPrefab;
+            }
+            else if (powerUpRandomValue < 0.6f)
+            {
+                // Spawn cheese: 40% chance out of power-up pool
+                collectiblePrefab = cheesePrefab;
             }
             else
             {
-                collectiblePrefab = Random.value < 0.5f ? cheesePrefab : carrotPrefab;
+                // Spawn carrot: 40% chance out of power-up pool
+                collectiblePrefab = carrotPrefab;
             }
         }
 
         // Instantiate the collectible at the fixed spawn position
         GameObject collectibleInstance = Instantiate(collectiblePrefab, fixedSpawnPosition, Quaternion.identity);
 
-        // Parent the collectible to the wheel
+        // Tie/parent the collectible to the wheel 
         collectibleInstance.transform.parent = wheel;
 
         // Rotate the collectible 90 degrees around the x-axis
         collectibleInstance.transform.Rotate(Vector3.right, 90f);
 
-        // Randomly offset the collectible to one of the three lanes
+        // Randomly offset the collectible to one of the lanes
         int laneOffset = Random.Range(-2, 4);
 
         // Position the collectible in one of the randomized lanes
@@ -73,17 +83,12 @@ public class ObstacleGenerator : MonoBehaviour
 
         string type = collectiblePrefab == twigPrefab || collectiblePrefab == rockPrefab ? "Obstacle" : "Power-up";
         Debug.Log(type + " spawned in lane: " + laneOffset);
-    }
 
-
-
-    // Update called once per frame
-    void Update()
-    {
-        // Don't need to update the position of the obstacles here
-        // - They'll move with the wheel because they're children of the wheel
+        // Destroy the collectible after 12 seconds
+        Destroy(collectibleInstance, 12f);
     }
 }
+
 
 
 
