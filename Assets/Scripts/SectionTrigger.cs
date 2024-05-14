@@ -7,18 +7,24 @@ public class SectionTrigger : MonoBehaviour
     private GameManager gameManager; 
     private Renderer screenRenderer;
     private Color originalColor;
-    private AudioSource audioSource; 
+    private AudioSource powerupAudioSource;
+    private AudioSource obstacleAudioSource;
+    
 
     private void Start()
     {
         gameManager = GameManager.Instance; // Assign GameManager instance to the reference
 
-        // For player red flash
-        // Credit: Chat GPT
+        // For player red flash (Credit: Chat GPT)
         screenRenderer = GetComponent<Renderer>(); 
         originalColor = screenRenderer.material.color; // Store the original color
-        audioSource = GetComponent<AudioSource>();
+
+        // Credit: https://discussions.unity.com/t/how-to-play-multiple-audio-files-from-one-script/237404/2
+        powerupAudioSource = GetComponents<AudioSource>()[0];
+        obstacleAudioSource = GetComponents<AudioSource>()[1];
+
     }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -27,7 +33,7 @@ public class SectionTrigger : MonoBehaviour
         {
             Debug.Log("Collision with power-up!");
             gameManager.HandleObstacleCollision();
-            audioSource.Play();
+            powerupAudioSource.Play();
             Destroy(other.gameObject); // Destroy the obstacle
         }
 
@@ -35,6 +41,7 @@ public class SectionTrigger : MonoBehaviour
         {
             Debug.Log("Collision with obstacle!");
             gameManager.BadObstacleCollision();
+            obstacleAudioSource.Play();
             StartCoroutine(FlashScreen()); // Player flashes red
             Destroy(other.gameObject); // Destroy obstacle
         }

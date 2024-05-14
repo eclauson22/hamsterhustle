@@ -38,8 +38,8 @@ public class ObstacleGenerator : MonoBehaviour
         GameObject collectiblePrefab;
         float randomValue = Random.value;
 
-        // 60% chnace of spawning an obstacle, as opposed to a power-up
-        if (randomValue < 0.6f)
+        // 50% chance of spawning an obstacle, as opposed to a power-up
+        if (randomValue < 0.5f)
         {
             // Spawn an obstacle: equal chance of spawning each
             collectiblePrefab = Random.value < 0.5f ? twigPrefab : rockPrefab;
