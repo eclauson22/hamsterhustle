@@ -7,9 +7,11 @@ public class SectionTrigger : MonoBehaviour
     private GameManager gameManager; 
     private Renderer screenRenderer;
     private Color originalColor;
-    private AudioSource powerupAudioSource;
-    private AudioSource obstacleAudioSource;
-    
+
+    // Assigned in unity editor
+    public AudioSource obstacleAudioSource; 
+    public AudioSource powerupAudioSource; 
+
 
     private void Start()
     {
@@ -18,10 +20,6 @@ public class SectionTrigger : MonoBehaviour
         // For player red flash (Credit: Chat GPT)
         screenRenderer = GetComponent<Renderer>(); 
         originalColor = screenRenderer.material.color; // Store the original color
-
-        // Credit: https://discussions.unity.com/t/how-to-play-multiple-audio-files-from-one-script/237404/2
-        powerupAudioSource = GetComponents<AudioSource>()[0];
-        obstacleAudioSource = GetComponents<AudioSource>()[1];
 
     }
 
