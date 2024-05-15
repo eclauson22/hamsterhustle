@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
 
     private float movementX;
-    private bool isJumping = false;
+    //private bool isJumping = false;
 
     public float move_speed;
     public float jumping_speed;
@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
         movementX = movementVector.x;   
     }
 
-    void OnJump()
+    /*void OnJump()
     {
         if (!isJumping)
         {
@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
             isJumping = true; // Set jumping flag to true
             rb.AddForce(Vector3.up * jumping_speed, ForceMode.VelocityChange);
         }
-    }
+    }*/
 
     private void FixedUpdate() 
     {
