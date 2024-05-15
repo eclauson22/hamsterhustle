@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 // Game manager is a singleton class: only one instance across the game
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
-    public TextMeshProUGUI countText;
+    public TextMeshProUGUI countScoreText;
+    public TextMeshProUGUI countLivesText;
+
+
     public static GameManager Instance
     {
         get
@@ -25,10 +29,14 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        SetCountText();
+        SetCountScoreText();
+        SetCountLivesText();
+
+        // restartButton.SetActive(false);
     }
 
-    public int obstaclesHit = 0; 
+    public int powerUpsHit = 0;
+    public int livesRemaining = 3;
 
     private void Awake()
     {
@@ -43,35 +51,68 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void HandleObstacleCollision()
+    public void HandlePowerUpCollision()
     {
-        obstaclesHit++; 
-        SetCountText();
-        Debug.Log("Obstacle hit! Total obstacles hit: " + obstaclesHit);
+        powerUpsHit++;
+        SetCountScoreText();
+        Debug.Log("Power-up hit! Total power-ups hit: " + powerUpsHit++);
 
-        if (obstaclesHit == 3)
+        if (powerUpsHit == 3)
         {
-            EndGame();
-            Debug.Log("All lives lost");
-            // Add more here for what happens when all lives are lost
+            // EndGame();
+            Debug.Log("Next level starts");
+
+            LevelIncrease();
+    
         }
     }
 
-    //this is the same thing and handleobstacle collision, but it takes away from the score for bad objects
-    public void BadObstacleCollision()
+    // this is the same thing and handleobstacle collision, but it takes away from the score for bad objects
+    public void HandleObstacleCollision()
     {
-        obstaclesHit--;
-        SetCountText();
+        // SetCountText();
+        livesRemaining--;
+        SetCountLivesText();
+
+        if (livesRemaining == 0)
+        {
+            EndGame();
+
+        }
     }
 
-    void SetCountText()
+    void SetCountScoreText()
     {
-        countText.text = "Score: " + obstaclesHit.ToString();
+        countScoreText.text = "Score: " + powerUpsHit.ToString();
+    }
+
+    void SetCountLivesText()
+    {
+        countLivesText.text = "Lives: " + livesRemaining.ToString();
     }
 
     void EndGame()
     {
-        countText.text = "Level Completed!";
+        Time.timeScale = 0; // Pause the game
+        // restartButton.SetActive(true); // Show the restart button
+        Debug.Log("You died!");
+    }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1; // Resume the game
+
+        // Credit: https://discussions.unity.com/t/how-can-i-end-and-reset-the-game-when-ball-collides-with-wallleft/170882/2 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Pauses screen
+    }
+
+    // Triggers necessary level increase operations:
+    // Increase in obstacle count, wheel speed increase, collectible deletion time decreases
+    // Make music speed up with the wheel
+    
+    void LevelIncrease()
+    {
+        countScoreText.text = "Level Completed!";
     }
 
 }

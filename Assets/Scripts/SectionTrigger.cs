@@ -30,7 +30,7 @@ public class SectionTrigger : MonoBehaviour
         if (other.gameObject.CompareTag("PowerUp"))
         {
             Debug.Log("Collision with power-up!");
-            gameManager.HandleObstacleCollision();
+            gameManager.HandlePowerUpCollision();
             powerupAudioSource.Play();
             Destroy(other.gameObject); // Destroy the obstacle
         }
@@ -38,7 +38,7 @@ public class SectionTrigger : MonoBehaviour
         if (other.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("Collision with obstacle!");
-            gameManager.BadObstacleCollision();
+            gameManager.HandleObstacleCollision();
             obstacleAudioSource.Play();
             StartCoroutine(FlashScreen()); // Player flashes red
             Destroy(other.gameObject); // Destroy obstacle
