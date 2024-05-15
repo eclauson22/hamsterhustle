@@ -8,6 +8,7 @@ TagManager:
   - Trigger
   - Obstacle
   - PowerUp
+  - Ground
   layers:
   - Default
   - TransparentFX
