@@ -10,9 +10,11 @@ public class PlayerController : MonoBehaviour
 
     private float movementX;
     //private bool isJumping = false;
+    private bool isDashing = false;
 
     public float move_speed;
     public float jumping_speed;
+    public float dash_speed;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,22 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 movementVector = movementValue.Get<Vector2>();
         movementX = movementVector.x;   
+
+        // Check if shift is pressed
+        if (Keyboard.current.leftShiftKey.isPressed)
+        {
+            // Check if moving to the left ("A" key) or right ("D" key) while dashing
+            if ((movementX < 0 && Keyboard.current.aKey.isPressed) || (movementX > 0 && Keyboard.current.dKey.isPressed))
+            {
+                //StartCoroutine(Dash());
+                isDashing = true;
+            }
+            else
+            {
+                isDashing = false;
+            }
+
+        }
     }
 
     /*void OnJump()
@@ -44,7 +62,14 @@ public class PlayerController : MonoBehaviour
         //multiplied by deltaTime and speed for a smooth MovePosition
         //rb.MovePosition(transform.position + left_right_movement * Time.deltaTime * move_speed);
         Vector3 left_right_movement = new Vector3 (movementX, 0.0f, 0.0f);
-        rb.MovePosition(transform.position + left_right_movement * Time.deltaTime * move_speed);
+        if (isDashing)
+        {
+            rb.MovePosition(transform.position + left_right_movement * Time.deltaTime * dash_speed);
+        }
+        else
+        {
+            rb.MovePosition(transform.position + left_right_movement * Time.deltaTime * move_speed);
+        }
     }
 
 }
