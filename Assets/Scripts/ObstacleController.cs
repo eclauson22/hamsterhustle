@@ -65,8 +65,9 @@ public class ObstacleGenerator : MonoBehaviour
             }
         }
 
+        Quaternion rotation = collectiblePrefab == carrotPrefab ? Quaternion.Euler(0, 180, 0) : Quaternion.identity;
         // Instantiate the collectible at the fixed spawn position
-        GameObject collectibleInstance = Instantiate(collectiblePrefab, fixedSpawnPosition, Quaternion.identity);
+        GameObject collectibleInstance = Instantiate(collectiblePrefab, fixedSpawnPosition, rotation);
 
         // Tie/parent the collectible to the wheel 
         collectibleInstance.transform.parent = wheel;
