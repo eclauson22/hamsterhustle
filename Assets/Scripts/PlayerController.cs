@@ -6,10 +6,11 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
-    private Animator animator;
+    //private Animator animator;
+    //m_animator.SetBool("isMoving", true);
 
     private float movementX;
-    //private bool isJumping = false;
+    private bool isGrounded = false;
     private bool isDashing = false;
 
     public float move_speed;
@@ -20,7 +21,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent <Rigidbody>(); 
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
     }
 
     void OnMove(InputValue movementValue)
@@ -45,15 +46,27 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    /*void OnJump()
+    private void OnCollisionEnter(Collision collision)
     {
-        if (!isJumping)
+        if (collision.gameObject.CompareTag("Ground"))
         {
-            animator.SetTrigger("Jump");
-            isJumping = true; // Set jumping flag to true
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
+        }
+    }
+
+    void OnJump()
+    {
+        if (isGrounded)
+        {
+            //animator.SetTrigger("isJump");
+            isGrounded = false; // Set grounded flag to false, jumping so no longer on the ground
             rb.AddForce(Vector3.up * jumping_speed, ForceMode.VelocityChange);
         }
-    }*/
+    }
 
     private void FixedUpdate() 
     {
@@ -70,6 +83,9 @@ public class PlayerController : MonoBehaviour
         {
             rb.MovePosition(transform.position + left_right_movement * Time.deltaTime * move_speed);
         }
+
+        float added_gravity = 5.0f;
+        rb.AddForce(Vector3.down * added_gravity);
     }
 
 }
