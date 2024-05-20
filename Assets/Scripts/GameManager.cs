@@ -4,14 +4,11 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-// Game manager is a singleton class: only one instance across the game
-
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
     public TextMeshProUGUI countScoreText;
     public TextMeshProUGUI countLivesText;
-
 
     public static GameManager Instance
     {
@@ -27,16 +24,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        SetCountScoreText();
-        SetCountLivesText();
-
-        // restartButton.SetActive(false);
-    }
-
     public int powerUpsHit = 0;
     public int livesRemaining = 3;
+    public int currentLevel = 1;
+    public int maxLevels = 5;
+    public int scoreMultiplier = 1;
+    public float timeBetweenLevels = 10f;
+
+    // Variables for managing level increases
+    // public int obstacleCountIncrease = 2;
+    public float speedMultiplier = 1.2f;
+    // public float collectibleDeletionTimeDecrease = 2f;
 
     private void Awake()
     {
@@ -51,33 +49,37 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void HandlePowerUpCollision()
+    void Start()
     {
-        powerUpsHit++;
         SetCountScoreText();
-        Debug.Log("Power-up hit! Total power-ups hit: " + powerUpsHit++);
+        SetCountLivesText();
+        StartCoroutine(LevelIncreaseRoutine());
+    }
 
-        if (powerUpsHit == 3)
+    IEnumerator LevelIncreaseRoutine()
+    {
+        while (true)
         {
-            // EndGame();
-            Debug.Log("Next level starts");
-
+            yield return new WaitForSeconds(timeBetweenLevels);
             LevelIncrease();
-    
         }
     }
 
-    // this is the same thing and handleobstacle collision, but it takes away from the score for bad objects
+    public void HandlePowerUpCollision()
+    {
+        powerUpsHit += scoreMultiplier;
+        SetCountScoreText();
+        Debug.Log("Power-up hit! Total power-ups hit: " + powerUpsHit);
+    }
+
     public void HandleObstacleCollision()
     {
-        // SetCountText();
         livesRemaining--;
         SetCountLivesText();
 
         if (livesRemaining == 0)
         {
             EndGame();
-
         }
     }
 
@@ -94,27 +96,58 @@ public class GameManager : MonoBehaviour
     void EndGame()
     {
         Time.timeScale = 0; // Pause the game
-        // restartButton.SetActive(true); // Show the restart button
         Debug.Log("You died!");
     }
 
     public void RestartGame()
     {
         Time.timeScale = 1; // Resume the game
-
-        // Credit: https://discussions.unity.com/t/how-can-i-end-and-reset-the-game-when-ball-collides-with-wallleft/170882/2 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Pauses screen
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Reload the current scene
     }
 
-    // Triggers necessary level increase operations:
-    // Increase in obstacle count, wheel speed increase, collectible deletion time decreases
-    // Make music speed up with the wheel
-    
     void LevelIncrease()
     {
-        countScoreText.text = "Level Completed!";
+        currentLevel++;
+        scoreMultiplier++;
+        // TODO: make new text box for level count
+        countScoreText.text = "Level " + currentLevel + " Completed!";
+        Debug.Log("Level increased to " + currentLevel + ", score multiplier is now " + scoreMultiplier);
+        IncreaseObstacleCount();
+        IncreaseWheelSpeed();
+        DecreaseCollectibleDeletionTime();
+
+           
     }
 
+    void IncreaseObstacleCount()
+    {
+        ObstacleGenerator generator = FindObjectOfType<ObstacleGenerator>();
+        if (generator != null)
+        {
+            generator.spawnInterval /= speedMultiplier;
+            Debug.Log("Obstacle generation interval: " + generator.spawnInterval);
+
+        }
+    }
+
+    void IncreaseWheelSpeed()
+    {
+        WheelBehavior wheel = FindObjectOfType<WheelBehavior>();
+        if (wheel != null)
+        {
+            wheel.RotationSpeed *= speedMultiplier;
+
+            Debug.Log("Rotation speed: " + wheel.RotationSpeed);
+        }
+    }
+
+    void DecreaseCollectibleDeletionTime()
+    {
+        ObstacleGenerator generator = FindObjectOfType<ObstacleGenerator>();
+        if (generator != null)
+        {
+            generator.collectibleLifetime /= speedMultiplier;
+            Debug.Log("Deletion time: " + generator.collectibleLifetime);
+        }
+    }
 }
-
-
