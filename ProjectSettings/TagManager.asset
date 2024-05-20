@@ -9,6 +9,7 @@ TagManager:
   - Obstacle
   - PowerUp
   - Ground
+  - Cheese
   layers:
   - Default
   - TransparentFX
