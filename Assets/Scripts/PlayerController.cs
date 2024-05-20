@@ -6,8 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
-    //private Animator animator;
-    //m_animator.SetBool("isMoving", true);
+    private Animator animator;
 
     private float movementX;
     private bool isGrounded = false;
@@ -21,7 +20,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent <Rigidbody>(); 
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     void OnMove(InputValue movementValue)
@@ -51,6 +50,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+            animator.SetBool("isJumping", false);
         }
         else
         {
@@ -65,6 +65,7 @@ public class PlayerController : MonoBehaviour
             //animator.SetTrigger("isJump");
             isGrounded = false; // Set grounded flag to false, jumping so no longer on the ground
             rb.AddForce(Vector3.up * jumping_speed, ForceMode.VelocityChange);
+            animator.SetBool("isJumping", true);
         }
     }
 
@@ -75,12 +76,20 @@ public class PlayerController : MonoBehaviour
         //multiplied by deltaTime and speed for a smooth MovePosition
         //rb.MovePosition(transform.position + left_right_movement * Time.deltaTime * move_speed);
         Vector3 left_right_movement = new Vector3 (movementX, 0.0f, 0.0f);
-        if (isDashing)
-        {
+
+        if (movementX != 0){
+            animator.SetBool("isStrafing", true);
+            animator.SetBool("isIdle", false);
+        }
+        else{
+            animator.SetBool("isStrafing", false);
+            animator.SetBool("isIdle", true);
+        }
+
+        if (isDashing){
             rb.MovePosition(transform.position + left_right_movement * Time.deltaTime * dash_speed);
         }
-        else
-        {
+        else{
             rb.MovePosition(transform.position + left_right_movement * Time.deltaTime * move_speed);
         }
 
