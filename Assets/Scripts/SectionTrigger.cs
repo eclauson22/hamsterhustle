@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollisionTrigger : MonoBehaviour
+public class SectionTrigger : MonoBehaviour
 {
     private GameManager gameManager; 
     private Renderer screenRenderer;
@@ -29,7 +29,6 @@ public class CollisionTrigger : MonoBehaviour
     // Is a Power up since only power ups use triggers
     private void OnTriggerEnter(Collider other)
     {
-
         if (other.gameObject.CompareTag("Cheese"))
         {
             Debug.Log("Collision with Cheese power-up!");
@@ -65,7 +64,7 @@ public class CollisionTrigger : MonoBehaviour
     {
         // Flash the character red (to use when player collides with obstacle)
         screenRenderer.material.color = Color.red;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
         // Return the screen to its original color
         screenRenderer.material.color = originalColor;
     }

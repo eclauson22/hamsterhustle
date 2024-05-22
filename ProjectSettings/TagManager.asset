@@ -10,7 +10,6 @@ TagManager:
   - PowerUp
   - Ground
   - Cheese
-  - DeletionPlane
   layers:
   - Default
   - TransparentFX
