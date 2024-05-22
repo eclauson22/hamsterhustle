@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     public int livesRemaining = 3;
     public int currentLevel = 1;
     public int scoreAdd = 1;
-    public float timeBetweenLevels = 30f;
+    public float timeBetweenLevels;
 
     // Variables for managing level increases
     // public int obstacleCountIncrease = 2;
