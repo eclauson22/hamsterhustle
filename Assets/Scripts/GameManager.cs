@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
     public TextMeshProUGUI countScoreText;
     public TextMeshProUGUI countLivesText;
+    public TextMeshProUGUI countLevelText;
 
     public static GameManager Instance
     {
@@ -92,6 +93,13 @@ public class GameManager : MonoBehaviour
         countLivesText.text = "Lives: " + livesRemaining.ToString();
     }
 
+    void SetCountLevelText()
+    {
+        countLevelText.text = "Level " + currentLevel.ToString();
+    }
+
+
+
     void EndGame()
     {
         Time.timeScale = 0; // Pause the game
@@ -109,13 +117,15 @@ public class GameManager : MonoBehaviour
         currentLevel++;
         scoreAdd = (int)(scoreAdd * speedMultiplier);
         // TODO: make new text box for level count
-        countScoreText.text = "Level " + currentLevel + " Completed!";
-        Debug.Log("Level increased to " + currentLevel + ", speed multiplier is " + speedMultiplier);
+        // countScoreText.text = "Level " + currentLevel + " Completed!";
+        // countLevelText.text = "Level " + currentLevel + " Completed!";
+        SetCountLevelText();
+
+        // Debug.Log("Level increased to " + currentLevel + ", speed multiplier is " + speedMultiplier);
+
         IncreaseObstacleCount();
         IncreaseWheelSpeed();
         DecreaseCollectibleDeletionTime();
-
-           
     }
 
     void IncreaseObstacleCount()
