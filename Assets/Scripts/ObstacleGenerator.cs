@@ -14,7 +14,6 @@ public class ObstacleGenerator : MonoBehaviour
 
     public float obstacleProbability = 0.7f; // Probability of spawning an obstacle (vs. a power-up)
     public float redbullProbability = 0.2f;
-    public float collectibleLifetime = 12f;
     public float spawnInterval = 1.5f;
 
     private static bool hasStarted = false;
@@ -110,8 +109,6 @@ public class ObstacleGenerator : MonoBehaviour
         string type = collectiblePrefab == twigPrefab || collectiblePrefab == rockPrefab ? "Obstacle" : "Power-up";
         // Debug.Log(type + " spawned in lane: " + laneOffset);
 
-        // Destroy the collectible after __ seconds
-        Destroy(collectibleInstance, collectibleLifetime);
     }
 }
 

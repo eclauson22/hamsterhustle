@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviour
 
         IncreaseObstacleCount();
         IncreaseWheelSpeed();
-        DecreaseCollectibleDeletionTime();
+        // DecreaseCollectibleDeletionTime();
     }
 
     void IncreaseObstacleCount()
@@ -150,13 +150,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void DecreaseCollectibleDeletionTime()
-    {
-        ObstacleGenerator generator = FindObjectOfType<ObstacleGenerator>();
-        if (generator != null)
-        {
-            generator.collectibleLifetime /= speedMultiplier;
-            Debug.Log("Deletion time: " + generator.collectibleLifetime);
-        }
-    }
+    //void DecreaseCollectibleDeletionTime()
+    //{
+    //    ObstacleGenerator generator = FindObjectOfType<ObstacleGenerator>();
+    //    if (generator != null)
+    //    {
+    //        generator.collectibleLifetime /= speedMultiplier;
+    //        Debug.Log("Deletion time: " + generator.collectibleLifetime);
+    //    }
+    //}
 }
