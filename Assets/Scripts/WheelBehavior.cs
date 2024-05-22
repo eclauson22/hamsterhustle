@@ -11,7 +11,7 @@ public class WheelBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        RotationSpeed = -15;// = sectionTrigger.WheelSpeed;
+        RotationSpeed = -20;// = sectionTrigger.WheelSpeed;
     }  
 
     void Update()

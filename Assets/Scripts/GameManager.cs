@@ -27,13 +27,12 @@ public class GameManager : MonoBehaviour
     public int powerUpsHit = 0;
     public int livesRemaining = 3;
     public int currentLevel = 1;
-    public int maxLevels = 5;
-    public int scoreMultiplier = 1;
-    public float timeBetweenLevels = 10f;
+    public int scoreAdd = 1;
+    public float timeBetweenLevels = 30f;
 
     // Variables for managing level increases
     // public int obstacleCountIncrease = 2;
-    public float speedMultiplier = 1.2f;
+    public float speedMultiplier = 2f;
     // public float collectibleDeletionTimeDecrease = 2f;
 
     private void Awake()
@@ -67,7 +66,7 @@ public class GameManager : MonoBehaviour
 
     public void HandlePowerUpCollision()
     {
-        powerUpsHit += scoreMultiplier;
+        powerUpsHit += scoreAdd;
         SetCountScoreText();
         Debug.Log("Power-up hit! Total power-ups hit: " + powerUpsHit);
     }
@@ -108,10 +107,10 @@ public class GameManager : MonoBehaviour
     void LevelIncrease()
     {
         currentLevel++;
-        scoreMultiplier++;
+        scoreAdd = (int)(scoreAdd * speedMultiplier);
         // TODO: make new text box for level count
         countScoreText.text = "Level " + currentLevel + " Completed!";
-        Debug.Log("Level increased to " + currentLevel + ", score multiplier is now " + scoreMultiplier);
+        Debug.Log("Level increased to " + currentLevel + ", speed multiplier is " + speedMultiplier);
         IncreaseObstacleCount();
         IncreaseWheelSpeed();
         DecreaseCollectibleDeletionTime();
@@ -124,7 +123,7 @@ public class GameManager : MonoBehaviour
         ObstacleGenerator generator = FindObjectOfType<ObstacleGenerator>();
         if (generator != null)
         {
-            generator.spawnInterval /= speedMultiplier;
+            generator.spawnInterval /= (speedMultiplier * 4);
             Debug.Log("Obstacle generation interval: " + generator.spawnInterval);
 
         }
