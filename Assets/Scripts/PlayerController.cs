@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour
             // Check if moving to the left ("A" key) or right ("D" key) while dashing
             if ((movementX < 0 && Keyboard.current.aKey.isPressed) || (movementX > 0 && Keyboard.current.dKey.isPressed))
             {
-                //StartCoroutine(Dash());
                 isDashing = true;
             }
             else
