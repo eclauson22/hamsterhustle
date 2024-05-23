@@ -74,7 +74,6 @@ public class PlayerController : MonoBehaviour
         //Vector3 left_right_movement = new Vector3 (movementX, 0.0f, 0.0f);
         //Apply the movement vector to the current position, which is
         //multiplied by deltaTime and speed for a smooth MovePosition
-        //rb.MovePosition(transform.position + left_right_movement * Time.deltaTime * move_speed);
         Vector3 left_right_movement = new Vector3 (movementX, 0.0f, 0.0f);
 
         if (movementX != 0){

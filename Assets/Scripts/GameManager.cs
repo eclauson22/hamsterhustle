@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public int currentLevel = 1;
     public int scoreAdd = 1;
     public float timeBetweenLevels;
+    private int numberOfLevels = 3;
 
     // Variables for managing level increases
     // public int obstacleCountIncrease = 2;
@@ -58,10 +59,13 @@ public class GameManager : MonoBehaviour
 
     IEnumerator LevelIncreaseRoutine()
     {
-        while (true)
+        // This function should run 2 times so there should be 2 level increases for a total of 3 levels
+        int i = 0;
+        while (i <= numberOfLevels)
         {
             yield return new WaitForSeconds(timeBetweenLevels);
             LevelIncrease();
+            i++;
         }
     }
 
