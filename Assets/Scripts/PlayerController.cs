@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     private float movementX;
     private bool isGrounded = false;
-    private bool isDashing = false;
+    private bool isDashing = false; // make function
 
     public float move_speed;
     public float jumping_speed;
@@ -66,6 +66,11 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector3.up * jumping_speed, ForceMode.VelocityChange);
             animator.SetBool("isJumping", true);
         }
+    }
+
+    public bool publicDash()
+    {
+        return isDashing;
     }
 
     private void FixedUpdate() 

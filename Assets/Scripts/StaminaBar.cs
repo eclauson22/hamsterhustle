@@ -8,14 +8,19 @@ public class StaminaBar : MonoBehaviour
 {
     public float stamina;
     float maxStamina;
+    float minStamina;
 
     public Slider staminaBar;
     public float dValue;
+
+    //PlayerController controller;
     // Start is called before the first frame update
     void Start()
     {
         maxStamina = stamina;
+        minStamina = 0;
         staminaBar.maxValue = maxStamina;
+        staminaBar.minValue = minStamina;
     }
 
     // Update is called once per frame
@@ -31,7 +36,7 @@ public class StaminaBar : MonoBehaviour
 
     private void DecreaseEnergy()
     {
-        if(stamina != 0){
+        if(stamina > 0){
             stamina -= dValue * Time.deltaTime;
         }
     }
