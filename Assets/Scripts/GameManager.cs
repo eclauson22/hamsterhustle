@@ -60,8 +60,8 @@ public class GameManager : MonoBehaviour
     IEnumerator LevelIncreaseRoutine()
     {
         // This function should run 2 times so there should be 2 level increases for a total of 3 levels
-        int i = 0;
-        while (i <= numberOfLevels)
+        int i = 1;
+        while (i < numberOfLevels)
         {
             yield return new WaitForSeconds(timeBetweenLevels);
             LevelIncrease();

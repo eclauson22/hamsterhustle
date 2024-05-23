@@ -7,6 +7,7 @@ public class ObstacleGenerator : MonoBehaviour
     public GameObject cheesePrefab;
     public GameObject carrotPrefab;
     public GameObject redbullPrefab;
+    public GameObject ballOfDeathPrefab;
 
     public Transform wheel;
     public float spawnDistance = 3f;
@@ -44,13 +45,23 @@ public class ObstacleGenerator : MonoBehaviour
         // 50% chance of spawning an obstacle, as opposed to a power-up
         if (randomValue <= 0.5f)
         {
-            // Spawn an obstacle: equal chance of spawning each
-            collectiblePrefab = Random.value < 0.5f ? twigPrefab : rockPrefab;
+            // Spawn an obstacle: equal chance of spawning each obstacle prefab
+            // collectiblePrefab = Random.value < 0.5f ? twigPrefab : rockPrefab;
+            int randomIndex = Random.Range(0, 3);
+
+            if (randomIndex == 0){
+                collectiblePrefab = twigPrefab;
+            }
+            else if (randomIndex == 1){
+                collectiblePrefab = rockPrefab;
+            }
+            else{
+                collectiblePrefab = ballOfDeathPrefab;
+            }
         }
         else
         {
             // Spawn a power-up
-
 
             float powerUpRandomValue = Random.value;
             if (powerUpRandomValue <= 0.4f)
