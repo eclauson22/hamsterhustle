@@ -236,7 +236,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -150, y: 85}
+  m_AnchoredPosition: {x: -200, y: 85}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &338039310
@@ -251,9 +251,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec4818ba6b1ab74c89018a8e2295ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stamina: 30
+  stamina: 100
   staminaBar: {fileID: 338039311}
-  dValue: 4
+  dValue: 15
 --- !u!114 &338039311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5567,6 +5567,7 @@ GameObject:
   - component: {fileID: 861400719}
   - component: {fileID: 861400720}
   - component: {fileID: 861400721}
+  - component: {fileID: 861400722}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5633,7 +5634,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -5793,6 +5794,28 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!64 &861400722
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861400708}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1445929679011568966, guid: eccccd7588c514ed0ac29dee3b56f967, type: 3}
 --- !u!1 &879856444
 GameObject:
   m_ObjectHideFlags: 0
