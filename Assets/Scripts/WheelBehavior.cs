@@ -23,10 +23,8 @@ public class WheelBehavior : MonoBehaviour
             RotationSpeed = RotationSpeed + 1;
             count = 0;
         }
-        // RotationSpeed = sectionTrigger.WheelSpeed;
-        // Debug.Log("Value from Script1: " + sectionTrigger.WheelSpeed);
-        // RotationSpeed = sectionTrigger.WheelSpeed;
-        //transform.Rotate(0f, RotationSpeed * Time.deltaTime, 0f, Space.Self); //for old wheel
+
         transform.Rotate(RotationSpeed * Time.deltaTime, 0f, 0f, Space.Self); // for new wheel
+
     }
 }

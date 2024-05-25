@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657934, g: 0.49641335, b: 0.5748169, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465791, g: 0.4964137, b: 0.5748169, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6778,6 +6778,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2562719210547629881, guid: 04dc216010e8f417f83c67045580fb14, type: 3}
+--- !u!4 &1915744339 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 04dc216010e8f417f83c67045580fb14, type: 3}
+  m_PrefabInstance: {fileID: 1816771192}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1973152562
 GameObject:
   m_ObjectHideFlags: 0
@@ -6812,7 +6817,7 @@ MonoBehaviour:
   cheesePrefab: {fileID: 2113550143}
   carrotPrefab: {fileID: 1104369208}
   redbullPrefab: {fileID: 1595620348}
-  wheel: {fileID: 707182142}
+  wheel: {fileID: 1915744339}
   spawnDistance: 5
   spawnHeight: 0
   obstacleProbability: 0.7
