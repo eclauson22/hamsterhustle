@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI countScoreText;
     public TextMeshProUGUI countLivesText;
     public TextMeshProUGUI countLevelText;
+    public AudioSource backgroundMusic;
 
     public static GameManager Instance
     {
@@ -120,16 +121,18 @@ public class GameManager : MonoBehaviour
     {
         currentLevel++;
         scoreAdd = (int)(scoreAdd * speedMultiplier);
-        // TODO: make new text box for level count
-        // countScoreText.text = "Level " + currentLevel + " Completed!";
-        // countLevelText.text = "Level " + currentLevel + " Completed!";
         SetCountLevelText();
 
         // Debug.Log("Level increased to " + currentLevel + ", speed multiplier is " + speedMultiplier);
 
         IncreaseObstacleCount();
         IncreaseWheelSpeed();
-        // DecreaseCollectibleDeletionTime();
+
+        // Increase the pitch of the background music
+        if (backgroundMusic != null)
+        {
+            backgroundMusic.pitch += 0.3f;
+        }
     }
 
     void IncreaseObstacleCount()
