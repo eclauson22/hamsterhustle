@@ -6,7 +6,7 @@ using UnityEngine;
 public class PowerUpMovement : MonoBehaviour
 {
     public float spinSpeed = 100f; // Speed of spinning
-    public float bobHeight = 0.5f; // Height of bobbing
+    public float bobHeight = 0.3f; // Height of bobbing
     public float bobSpeed = 1f; // Speed of bobbing
 
     private Vector3 localStartPos;

@@ -35,7 +35,9 @@ public class ObstacleGenerator : MonoBehaviour
     {
 
         // Default spawn position
-        Vector3 fixedSpawnPosition = new Vector3(50f, 14.5f, 24f);
+        // decrease z value to increase height 
+        // Vector3 fixedSpawnPosition = new Vector3(50f, 14.5f, 23f);
+        Vector3 fixedSpawnPosition = new Vector3(50f, 14.5f, 23f);
 
 
         // Randomly determine if we should spawn an obstacle or a power-up
