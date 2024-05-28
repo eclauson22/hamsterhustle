@@ -862,7 +862,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 49.97, y: 12, z: 8.09}
-  m_LocalScale: {x: 1.1, y: 1, z: 0.8}
+  m_LocalScale: {x: 1.3, y: 1, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -7303,7 +7303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinSpeed: 100
-  bobHeight: 0.5
+  bobHeight: 0.3
   bobSpeed: 1
 --- !u!1001 &1601710626
 PrefabInstance:

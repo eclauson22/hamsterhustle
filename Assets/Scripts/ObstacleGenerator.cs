@@ -35,8 +35,6 @@ public class ObstacleGenerator : MonoBehaviour
     {
 
         // Default spawn position
-        // decrease z value to increase height 
-        // Vector3 fixedSpawnPosition = new Vector3(50f, 14.5f, 23f);
         Vector3 fixedSpawnPosition = new Vector3(50f, 14.5f, 23f);
 
 
@@ -70,19 +68,16 @@ public class ObstacleGenerator : MonoBehaviour
             {
                 // Spawn a red bull
                 collectiblePrefab = redbullPrefab;
-                fixedSpawnPosition = new Vector3(50f, 14.5f, 22f);
-                Debug.Log("REDBULL SPAWNED");
-            }
+                fixedSpawnPosition = new Vector3(50f, 14.5f, 20f);
+                    }
             // Normal power-up (non-redbull)
             else
             {
-
-                
-
+             
                 if (powerUpRandomValue <= 0.6f)
                 {
                     // Floating (need to jump to get)
-                    fixedSpawnPosition = new Vector3(50f, 14.5f, 23f);
+                    fixedSpawnPosition = new Vector3(50f, 14.5f, 22f);
 
                     // Spawn cheese: 40% chance out of power-up pool
                     collectiblePrefab = cheesePrefab;
@@ -92,7 +87,7 @@ public class ObstacleGenerator : MonoBehaviour
                 else
                 {
                     // Resting on bottom of wheel
-                    fixedSpawnPosition = new Vector3(50f, 14.5f, 24.5f);
+                    fixedSpawnPosition = new Vector3(50f, 14.5f, 23.5f);
 
                     // Spawn carrot: 40% chance out of power-up pool
                     collectiblePrefab = carrotPrefab;
