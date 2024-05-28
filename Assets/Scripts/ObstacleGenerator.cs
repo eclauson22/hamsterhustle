@@ -8,6 +8,7 @@ public class ObstacleGenerator : MonoBehaviour
     public GameObject carrotPrefab;
     public GameObject redbullPrefab;
     public GameObject ballOfDeathPrefab;
+    public GameObject ultimateObstaclePrefab; // obstacle for level 3
 
     public Transform wheel;
     public float spawnDistance = 3f;
@@ -46,8 +47,8 @@ public class ObstacleGenerator : MonoBehaviour
         if (randomValue <= 0.5f)
         {
             // Spawn an obstacle: equal chance of spawning each obstacle prefab
-            // collectiblePrefab = Random.value < 0.5f ? twigPrefab : rockPrefab;
-            int randomIndex = Random.Range(0, 3);
+            // Adjusting index range based on level
+            int randomIndex = Random.Range(0, GameManager.Instance.currentLevel >= 3 ? 4 : GameManager.Instance.currentLevel == 2 ? 3 : 2); 
 
             if (randomIndex == 0){
                 collectiblePrefab = twigPrefab;
@@ -55,9 +56,15 @@ public class ObstacleGenerator : MonoBehaviour
             else if (randomIndex == 1){
                 collectiblePrefab = rockPrefab;
             }
-            else{
+            else if (randomIndex == 2)
+            {
                 collectiblePrefab = ballOfDeathPrefab;
             }
+            else
+            {
+                collectiblePrefab = ultimateObstaclePrefab;
+            }
+
         }
         else
         {
