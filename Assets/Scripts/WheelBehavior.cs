@@ -9,8 +9,8 @@ public class WheelBehavior : MonoBehaviour
 
     void Start()
     {
-        RotationSpeed = -20;// = sectionTrigger.WheelSpeed;
-
+       //RotationSpeed = -20;// = sectionTrigger.WheelSpeed; //for old wheel 
+        RotationSpeed = 15;
     }  
 
     void Update()
@@ -27,6 +27,7 @@ public class WheelBehavior : MonoBehaviour
         // Debug.Log("Value from Script1: " + sectionTrigger.WheelSpeed);
         // RotationSpeed = sectionTrigger.WheelSpeed;
 
-        transform.Rotate(0f, RotationSpeed * Time.deltaTime, 0f, Space.Self);
+        //transform.Rotate(0f, RotationSpeed * Time.deltaTime, 0f, Space.Self); //old wheel
+        transform.Rotate(RotationSpeed * Time.deltaTime, 0f, 0f, Space.Self);
     }
 }
