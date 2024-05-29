@@ -7,12 +7,15 @@ public class CollisionTrigger : MonoBehaviour
     private GameManager gameManager; 
     private Renderer screenRenderer;
     private Color originalColor;
+    private Animator animator;
     private RainbowColors rainbowColors;
 
     // Assigned in unity editor
     public AudioSource obstacleAudioSource; 
     public AudioSource powerupAudioSource;
-    public AudioSource cheeseAudioSource;  
+    public AudioSource cheeseAudioSource; 
+
+    public bool isGrounded = false; 
 
 
     private void Start()
@@ -23,7 +26,13 @@ public class CollisionTrigger : MonoBehaviour
         screenRenderer = GetComponent<Renderer>(); 
         originalColor = screenRenderer.material.color; // Store the original color
         rainbowColors = GetComponent<RainbowColors>();
+        animator = GetComponent<Animator>();
 
+    }
+
+    public bool Grounded()
+    {
+        return isGrounded;
     }
 
     // Is a Power up since only power ups use triggers
@@ -50,6 +59,12 @@ public class CollisionTrigger : MonoBehaviour
     // Not a power up since power ups do not use collisions
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+            animator.SetBool("isJumping", false);
+        }
+
         if (rainbowColors.isInvincible() == false && collision.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("Collision with obstacle!");

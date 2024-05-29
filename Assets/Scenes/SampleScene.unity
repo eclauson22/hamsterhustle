@@ -5740,6 +5740,7 @@ MonoBehaviour:
   obstacleAudioSource: {fileID: 532914313}
   powerupAudioSource: {fileID: 567245674}
   cheeseAudioSource: {fileID: 1976818943}
+  isGrounded: 0
 --- !u!65 &861400711
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
     private Animator animator;
+    private CollisionTrigger collision;
 
     private float movementX;
     private bool isGrounded = false;
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent <Rigidbody>(); 
         animator = GetComponent<Animator>();
+        collision = GetComponent<CollisionTrigger>();
     }
 
     void OnMove(InputValue movementValue)
@@ -44,25 +46,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;
-            animator.SetBool("isJumping", false);
-        }
-        else
-        {
-            isGrounded = false;
-        }
-    }
-
     void OnJump()
     {
-        if (isGrounded)
+        if (collision.Grounded())
         {
-            //animator.SetTrigger("isJump");
-            isGrounded = false; // Set grounded flag to false, jumping so no longer on the ground
+            collision.isGrounded = false; // Set grounded flag to false, jumping so no longer on the ground
             rb.AddForce(Vector3.up * jumping_speed, ForceMode.VelocityChange);
             animator.SetBool("isJumping", true);
         }
