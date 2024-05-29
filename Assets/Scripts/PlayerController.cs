@@ -8,10 +8,12 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private Animator animator;
     private CollisionTrigger collision;
+    private StaminaBar staminaBar;
 
     private float movementX;
 
     public bool isDashing = false;
+    public bool oneJump = false;
 
     public float move_speed;
     public float jumping_speed;
@@ -23,11 +25,17 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent <Rigidbody>(); 
         animator = GetComponent<Animator>();
         collision = GetComponent<CollisionTrigger>();
+        staminaBar = FindObjectOfType<StaminaBar>();
     }
 
     public bool publicDash()
     {
         return isDashing;
+    }
+
+    public bool publicJump()
+    {
+        return oneJump;
     }
 
     void OnMove(InputValue movementValue)
@@ -38,8 +46,7 @@ public class PlayerController : MonoBehaviour
         // Check if shift is pressed
         if (Keyboard.current.leftShiftKey.isPressed)
         {
-            // Check if moving to the left ("A" key) or right ("D" key) while dashing
-            if ((movementX < 0 && Keyboard.current.aKey.isPressed) || (movementX > 0 && Keyboard.current.dKey.isPressed))
+            if ((movementX < 0) || (movementX > 0))
             {
                 isDashing = true;
             }
@@ -57,8 +64,9 @@ public class PlayerController : MonoBehaviour
 
     void OnJump()
     {
-        if (collision.Grounded())
+        if (collision.Grounded() && (staminaBar.EmptyStamina() != true))
         {
+            oneJump = true;
             collision.isGrounded = false; // Set grounded flag to false, jumping so no longer on the ground
             rb.AddForce(Vector3.up * jumping_speed, ForceMode.VelocityChange);
             animator.SetBool("isJumping", true);
@@ -81,11 +89,16 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isIdle", true);
         }
 
-        if (isDashing){
+        if (isDashing && (staminaBar.EmptyStamina() != true)){
             rb.MovePosition(transform.position + left_right_movement * Time.deltaTime * dash_speed);
         }
         else{
             rb.MovePosition(transform.position + left_right_movement * Time.deltaTime * move_speed);
+        }
+
+        if (collision.Grounded() == false)
+        {
+            oneJump = false;
         }
 
         float added_gravity = 5.0f;

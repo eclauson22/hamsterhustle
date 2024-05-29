@@ -14,8 +14,12 @@ public class StaminaBar : MonoBehaviour
     private PlayerController controller;
 
     public float dValue;
+    public float jumpDValue;
+    private bool isEmpty = false;
 
-    //PlayerController controller;
+    private bool canRegenerate = true; // New flag for regeneration
+    public float emptyDelay; // Time to wait before regenerating
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,24 +33,54 @@ public class StaminaBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (controller.publicDash())
-            DecreaseEnergy();
-        else if (stamina < maxStamina)
-            IncreaseEnergy();
+        if (stamina > minStamina)
+        {
+            isEmpty = false;
+            if (controller.publicDash())
+                DecreaseEnergy();
+            else if (controller.publicJump())
+                JumpDecreaseEnergy();
+            else if (stamina < maxStamina && canRegenerate)
+                IncreaseEnergy();
+        }
+        else
+        {
+            if (!isEmpty)
+            {
+                isEmpty = true;
+                StartCoroutine(WaitBeforeRegenerate());
+            }
+        }
 
         staminaBar.value = stamina;
     }
 
     private void DecreaseEnergy()
     {
-        if(stamina > 0){
-            stamina -= dValue * Time.deltaTime;
-        }
+        stamina -= dValue * Time.deltaTime;
+    }
+
+    private void JumpDecreaseEnergy()
+    {
+        stamina -= jumpDValue;
     }
 
     private void IncreaseEnergy()
     {
         stamina += dValue * Time.deltaTime;
+    }
+
+    private IEnumerator WaitBeforeRegenerate()
+    {
+        canRegenerate = false; // Prevent regeneration
+        yield return new WaitForSeconds(emptyDelay); // Wait for specified seconds
+        canRegenerate = true; // Allow regeneration
+        stamina += 5;
+    }
+
+    public bool EmptyStamina()
+    {
+        return isEmpty;
     }
 }
 

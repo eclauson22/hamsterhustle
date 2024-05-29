@@ -254,6 +254,8 @@ MonoBehaviour:
   stamina: 100
   staminaBar: {fileID: 338039311}
   dValue: 15
+  jumpDValue: 7.5
+  emptyDelay: 2.5
 --- !u!114 &338039311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5840,6 +5842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDashing: 0
+  oneJump: 0
   move_speed: 5
   jumping_speed: 10
   dash_speed: 10
