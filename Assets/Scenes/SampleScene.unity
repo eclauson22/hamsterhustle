@@ -590,7 +590,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: eaa5a284fcb16844c8e9bc008a15712f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.36
+  m_Volume: 1
   m_Pitch: 0.7
   Loop: 1
   Mute: 0
@@ -5669,7 +5669,7 @@ MonoBehaviour:
   livesRemaining: 3
   currentLevel: 1
   scoreAdd: 1
-  timeBetweenLevels: 20
+  timeBetweenLevels: 60
   speedMultiplier: 1.5
 --- !u!1 &861400708
 GameObject:
