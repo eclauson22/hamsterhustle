@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     // Variables for managing level increases
     // public int obstacleCountIncrease = 2;
-    public float speedMultiplier = 2f;
+    public float speedMultiplier = 3f;
     // public float collectibleDeletionTimeDecrease = 2f;
 
     private void Awake()

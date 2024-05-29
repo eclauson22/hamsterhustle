@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     public float move_speed;
     public float jumping_speed;
     public float dash_speed;
-
+    
     // Start is called before the first frame update
     void Start()
     {

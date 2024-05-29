@@ -10,7 +10,7 @@ public class WheelBehavior : MonoBehaviour
     void Start()
     {
        //RotationSpeed = -20;// = sectionTrigger.WheelSpeed; //for old wheel 
-        RotationSpeed = 15;
+        RotationSpeed = 25;
     }  
 
     void Update()
