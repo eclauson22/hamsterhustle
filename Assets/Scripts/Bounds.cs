@@ -13,8 +13,8 @@ public class HamsterBounds : MonoBehaviour
     void Start()
     {
         // Initialize maxLeftPosition and maxRightPosition
-        maxLeftPosition = origin.x - 4.5f;
-        maxRightPosition = origin.x + 4.5f;
+        maxLeftPosition = origin.x - 5f;
+        maxRightPosition = origin.x + 5f;
     }
 
     // Update is called once per frame

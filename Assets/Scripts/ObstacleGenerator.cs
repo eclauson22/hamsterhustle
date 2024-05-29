@@ -44,7 +44,7 @@ public class ObstacleGenerator : MonoBehaviour
         float randomValue = Random.value;
 
         // 50% chance of spawning an obstacle, as opposed to a power-up
-        if (randomValue <= 0.5f)
+        if (randomValue <= 0.75f)
         {
             // Spawn an obstacle: equal chance of spawning each obstacle prefab
             // Adjusting index range based on level

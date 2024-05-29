@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657856, g: 0.49641293, b: 0.57481515, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657892, g: 0.4964137, b: 0.57481635, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -588,7 +588,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 830bfd2d2f6cd49068768e6d8278af32, type: 3}
+  m_audioClip: {fileID: 8300000, guid: eaa5a284fcb16844c8e9bc008a15712f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.36
   m_Pitch: 0.7
@@ -5545,7 +5545,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: eccccd7588c514ed0ac29dee3b56f967, type: 3}
       propertyPath: m_Name
-      value: Lvl3Obstacle
+      value: EvilHamster
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: eccccd7588c514ed0ac29dee3b56f967, type: 3}
       propertyPath: m_TagString
@@ -5669,7 +5669,7 @@ MonoBehaviour:
   livesRemaining: 3
   currentLevel: 1
   scoreAdd: 1
-  timeBetweenLevels: 15
+  timeBetweenLevels: 20
   speedMultiplier: 1.5
 --- !u!1 &861400708
 GameObject:
@@ -7669,15 +7669,15 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ae8b727d1392a104d80ff32e520db401, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d05a4119fb12af442a7c5b712e1f9605, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.518
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 126
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -7715,7 +7715,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
