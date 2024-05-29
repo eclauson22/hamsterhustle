@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     public int currentLevel = 1;
     public int scoreAdd = 1;
     public float timeBetweenLevels;
-    private int numberOfLevels = 3;
+    private int numberOfLevels = 4;
 
     // Variables for managing level increases
     // public int obstacleCountIncrease = 2;
@@ -68,6 +68,7 @@ public class GameManager : MonoBehaviour
             LevelIncrease();
             i++;
         }
+        SetEndText();
     }
 
     public void HandlePowerUpCollision()
@@ -101,6 +102,11 @@ public class GameManager : MonoBehaviour
     void SetCountLevelText()
     {
         countLevelText.text = "Level " + currentLevel.ToString();
+    }
+
+    void SetEndText()
+    {
+        countLevelText.text = "All Levels Completed You Win!";
     }
 
     void EndGame()
