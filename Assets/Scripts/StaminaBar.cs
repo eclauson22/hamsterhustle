@@ -11,6 +11,8 @@ public class StaminaBar : MonoBehaviour
     float minStamina;
 
     public Slider staminaBar;
+    private PlayerController controller;
+
     public float dValue;
 
     //PlayerController controller;
@@ -21,12 +23,13 @@ public class StaminaBar : MonoBehaviour
         minStamina = 0;
         staminaBar.maxValue = maxStamina;
         staminaBar.minValue = minStamina;
+        controller = FindObjectOfType<PlayerController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (controller.publicDash())
             DecreaseEnergy();
         else if (stamina != maxStamina)
             IncreaseEnergy();
