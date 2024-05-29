@@ -103,12 +103,11 @@ public class GameManager : MonoBehaviour
         countLevelText.text = "Level " + currentLevel.ToString();
     }
 
-
-
     void EndGame()
     {
         Time.timeScale = 0; // Pause the game
         Debug.Log("You died!");
+        SceneManager.LoadScene("GameOverScene");
     }
 
     public void RestartGame()
