@@ -8,6 +8,7 @@ public class RainbowColors : MonoBehaviour
     public Material mt;
     private Color32[] colors;
     private Color originalColor;
+    private bool invincibilityState = false; // invincibility state
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,7 @@ public class RainbowColors : MonoBehaviour
 
     public IEnumerator Cycle()
     {
+        invincibilityState = true;
         int i = 0;
         float timer = 0f;
 
@@ -42,12 +44,18 @@ public class RainbowColors : MonoBehaviour
             i++;
         }
 
-        Debug.Log("Rainbow effect stoppped after 14 seconds");
+        Debug.Log("Rainbow effect stoppped after 6.5 seconds");
         mt.color = originalColor;
+        invincibilityState = false;
     }
 
     public void StartRainbowCycle()
     {
         StartCoroutine(Cycle());
+    }
+
+    public bool isInvincible()
+    {
+        return invincibilityState;
     }
 }

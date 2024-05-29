@@ -50,7 +50,7 @@ public class CollisionTrigger : MonoBehaviour
     // Not a power up since power ups do not use collisions
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Obstacle"))
+        if (rainbowColors.isInvincible() == false && collision.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("Collision with obstacle!");
             gameManager.HandleObstacleCollision();
