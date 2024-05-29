@@ -115,7 +115,7 @@ public class ObstacleGenerator : MonoBehaviour
         collectibleInstance.transform.Rotate(Vector3.right, 90f);
 
         // Randomly offset the collectible to one of the lanes
-        int laneOffset = Random.Range(-2, 4);
+        int laneOffset = Random.Range(-4, 6);
 
         // Position the collectible in one of the randomized lanes
         Vector3 collectiblePosition = fixedSpawnPosition + Vector3.right * laneOffset;

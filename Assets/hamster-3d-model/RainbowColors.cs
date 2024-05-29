@@ -31,7 +31,7 @@ public class RainbowColors : MonoBehaviour
         int i = 0;
         float timer = 0f;
 
-        while(timer < 14f)
+        while(timer < 6.5f)
         {
             for(float interpolant = 0f; interpolant < 1f; interpolant+= 0.01f)
             {
