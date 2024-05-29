@@ -31,7 +31,7 @@ public class StaminaBar : MonoBehaviour
     {
         if (controller.publicDash())
             DecreaseEnergy();
-        else if (stamina != maxStamina)
+        else if (stamina < maxStamina)
             IncreaseEnergy();
 
         staminaBar.value = stamina;
