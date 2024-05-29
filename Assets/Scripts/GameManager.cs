@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI countScoreText;
     public TextMeshProUGUI countLivesText;
     public TextMeshProUGUI countLevelText;
-    public AudioSource backgroundMusic;
+    public AudioSource backgroundMusic; 
 
     public static GameManager Instance
     {
