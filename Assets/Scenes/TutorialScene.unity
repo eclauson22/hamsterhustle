@@ -5666,6 +5666,7 @@ MonoBehaviour:
   countScoreText: {fileID: 2082792863}
   countLivesText: {fileID: 1468808071}
   countLevelText: {fileID: 2034814449}
+  Tutorial: {fileID: 1077934883}
   backgroundMusic: {fileID: 603363909}
   powerUpsHit: 0
   livesRemaining: 3
@@ -6341,7 +6342,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 80}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1077934883
 MonoBehaviour:
