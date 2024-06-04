@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class ObstacleGenerator : MonoBehaviour
 {
@@ -18,23 +19,32 @@ public class ObstacleGenerator : MonoBehaviour
     public float redbullProbability = 0.2f;
     public float spawnInterval = 1.5f;
 
-    private static bool hasStarted = false;
+    public static bool hasStarted = false;
 
     void Start()
     {
         if (!hasStarted)
         {
-            InvokeRepeating("GenerateObstacle", 0f, spawnInterval);
+            //yield return new WaitForSeconds(initialDelay);//wait for tutorial before spawning objects
+            //InvokeRepeating("GenerateObstacle", 0f, spawnInterval);
+            StartCoroutine(StartGeneratingWithDelay());
             hasStarted = true;
 
             Debug.Log("Started");
         }
     }
 
+    IEnumerator StartGeneratingWithDelay()
+    {
+        Debug.Log("wait time for obstacles starting");
+        yield return new WaitForSeconds(30f); // Wait for the specified delay time
+        Debug.Log("waiting time has ended obstacle spawn start");
+        InvokeRepeating("GenerateObstacle", 0f, spawnInterval);
+    }
+
 
     void GenerateObstacle()
     {
-
         // Default spawn position
         Vector3 fixedSpawnPosition = new Vector3(50f, 14.5f, 23f);
 
