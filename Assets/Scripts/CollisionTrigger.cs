@@ -14,6 +14,7 @@ public class CollisionTrigger : MonoBehaviour
     public AudioSource obstacleAudioSource; 
     public AudioSource powerupAudioSource;
     public AudioSource cheeseAudioSource; 
+    public AudioSource redbullAudioSource; 
 
     public bool isGrounded = false; 
 
@@ -47,6 +48,16 @@ public class CollisionTrigger : MonoBehaviour
             rainbowColors.StartRainbowCycle();
             Destroy(other.gameObject); // Destroy the obstacle
         }
+        else if (other.gameObject.CompareTag("Redbull"))
+        {
+            Debug.Log("Collision with Redbull power-up!");
+            gameManager.HandlePowerUpCollision();
+            gameManager.livesRemaining++;
+            gameManager.SetCountLivesText();
+            redbullAudioSource.Play();
+            StartCoroutine(FlashGreen());
+            Destroy(other.gameObject); // Destroy the obstacle
+        }
         else
         {
             Debug.Log("Collision with power-up!");
@@ -75,12 +86,22 @@ public class CollisionTrigger : MonoBehaviour
         }
     }
 
-    // Credit: Chat GPT
+    // Credit: Chat GPT Flash red
     private IEnumerator FlashScreen()
     {
         // Flash the character red (to use when player collides with obstacle)
         screenRenderer.material.color = Color.red;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
+        // Return the screen to its original color
+        screenRenderer.material.color = originalColor;
+    }
+
+    // Flash green
+    private IEnumerator FlashGreen()
+    {
+        // Flash the character red (to use when player collides with obstacle)
+        screenRenderer.material.color = Color.green;
+        yield return new WaitForSeconds(0.5f);
         // Return the screen to its original color
         screenRenderer.material.color = originalColor;
     }

@@ -67,7 +67,7 @@ public class StaminaBar : MonoBehaviour
 
     private void IncreaseEnergy()
     {
-        stamina += dValue * Time.deltaTime;
+        stamina += (dValue/2) * Time.deltaTime;
     }
 
     private IEnumerator WaitBeforeRegenerate()
@@ -75,7 +75,7 @@ public class StaminaBar : MonoBehaviour
         canRegenerate = false; // Prevent regeneration
         yield return new WaitForSeconds(emptyDelay); // Wait for specified seconds
         canRegenerate = true; // Allow regeneration
-        stamina += 5;
+        stamina += 11;
     }
 
     public bool EmptyStamina()

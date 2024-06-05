@@ -15,9 +15,9 @@ public class ObstacleGenerator : MonoBehaviour
     public float spawnDistance = 3f;
     public float spawnHeight = 1f;
 
-    public float obstacleProbability = 0.7f; // Probability of spawning an obstacle (vs. a power-up)
-    public float redbullProbability = 0.2f;
-    public float spawnInterval = 1.5f;
+    public float obstacleProbability; // Probability of spawning an obstacle (vs. a power-up)
+    public float redbullProbability;
+    public float spawnInterval;
 
     private static bool hasStarted = false;
 
@@ -54,11 +54,12 @@ public class ObstacleGenerator : MonoBehaviour
         float randomValue = Random.value;
 
         // 50% chance of spawning an obstacle, as opposed to a power-up
-        if (randomValue <= 0.75f)
+        if (randomValue <= obstacleProbability)
         {
             // Spawn an obstacle: equal chance of spawning each obstacle prefab
             // Adjusting index range based on level
-            int randomIndex = Random.Range(0, GameManager.Instance.currentLevel >= 3 ? 4 : GameManager.Instance.currentLevel == 2 ? 3 : 2); 
+            int maxIndex = GameManager.Instance.currentLevel >= 3 ? 4 : GameManager.Instance.currentLevel == 2 ? 3 : 2;
+            int randomIndex = Random.Range(0, maxIndex);
 
             if (randomIndex == 0){
                 collectiblePrefab = twigPrefab;
@@ -81,7 +82,7 @@ public class ObstacleGenerator : MonoBehaviour
             // Spawn a power-up
 
             float powerUpRandomValue = Random.value;
-            if (powerUpRandomValue <= 0.4f)
+            if (powerUpRandomValue <= redbullProbability)
             {
                 // Spawn a red bull
                 collectiblePrefab = redbullPrefab;
@@ -91,7 +92,7 @@ public class ObstacleGenerator : MonoBehaviour
             else
             {
              
-                if (powerUpRandomValue <= 0.6f)
+                if (powerUpRandomValue <= 0.3f)
                 {
                     // Floating (need to jump to get)
                     fixedSpawnPosition = new Vector3(50f, 14.5f, 22f);

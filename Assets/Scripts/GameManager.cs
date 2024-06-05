@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
         countScoreText.text = "Score: " + powerUpsHit.ToString();
     }
 
-    void SetCountLivesText()
+    public void SetCountLivesText()
     {
         countLivesText.text = "Lives: " + livesRemaining.ToString();
     }
@@ -119,7 +119,7 @@ public class GameManager : MonoBehaviour
     {
         Tutorial.text = "Press A, W, and D or arrow keys to move and jump";
         yield return new WaitForSeconds(6f);
-        Tutorial.text = "Press Shift to move faster from left to right";
+        Tutorial.text = "Press Shift to sprint left to right, Cheese grants invinsibility, Redbull Gives Health";
         yield return new WaitForSeconds(6f);
         Tutorial.text = "Collect Cheese, Redbull Cans, and Carrots to collect points";
         yield return new WaitForSeconds(6f);
