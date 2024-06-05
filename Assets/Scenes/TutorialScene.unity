@@ -5668,7 +5668,8 @@ MonoBehaviour:
   countLevelText: {fileID: 2034814449}
   Tutorial: {fileID: 1077934883}
   backgroundMusic: {fileID: 603363909}
-  powerUpsHit: 0
+  movingLevelTextPrefab: {fileID: 0}
+  wheel: {fileID: 0}
   livesRemaining: 3
   currentLevel: 1
   scoreAdd: 1
@@ -5744,6 +5745,7 @@ MonoBehaviour:
   obstacleAudioSource: {fileID: 532914313}
   powerupAudioSource: {fileID: 567245674}
   cheeseAudioSource: {fileID: 1976818943}
+  redbullAudioSource: {fileID: 0}
   isGrounded: 0
 --- !u!65 &861400711
 BoxCollider:
@@ -6366,8 +6368,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 62091426b56e54e138f5a826947855ff, type: 2}
+  m_sharedMaterial: {fileID: -6355131211056115827, guid: 62091426b56e54e138f5a826947855ff, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7269,8 +7271,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Lives:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 62091426b56e54e138f5a826947855ff, type: 2}
+  m_sharedMaterial: {fileID: -6355131211056115827, guid: 62091426b56e54e138f5a826947855ff, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8182,8 +8184,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Level 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 62091426b56e54e138f5a826947855ff, type: 2}
+  m_sharedMaterial: {fileID: -6355131211056115827, guid: 62091426b56e54e138f5a826947855ff, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8316,8 +8318,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Score:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 62091426b56e54e138f5a826947855ff, type: 2}
+  m_sharedMaterial: {fileID: -6355131211056115827, guid: 62091426b56e54e138f5a826947855ff, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
