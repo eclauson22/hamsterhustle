@@ -19,7 +19,7 @@ public class ObstacleGenerator : MonoBehaviour
     public float redbullProbability = 0.2f;
     public float spawnInterval = 1.5f;
 
-    public static bool hasStarted = false;
+    private static bool hasStarted = false;
 
     void Start()
     {
