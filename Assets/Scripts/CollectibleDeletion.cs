@@ -19,6 +19,8 @@ public class CollectibleDeletion : MonoBehaviour
         Debug.Log("PowerUp collison recognized");
         // Destroy(other.gameObject);
 
+        Destroy(other.gameObject);
+
         if (other.gameObject.CompareTag("Cheese"))
         {
             Destroy(other.gameObject); // Destroy the obstacle
@@ -27,6 +29,12 @@ public class CollectibleDeletion : MonoBehaviour
         {
             Destroy(other.gameObject); // Destroy the obstacle
         }
+
+        else if (other.gameObject.CompareTag("Text"))
+        {
+            Destroy(other.gameObject); // Destroy the obstacle
+        }
+
     }
 
     // Not a power up since power ups do not use collisions

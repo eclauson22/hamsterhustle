@@ -11,6 +11,7 @@ TagManager:
   - Ground
   - Cheese
   - DeletionPlane
+  - Text
   layers:
   - Default
   - TransparentFX
