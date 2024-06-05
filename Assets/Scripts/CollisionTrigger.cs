@@ -15,6 +15,8 @@ public class CollisionTrigger : MonoBehaviour
     public AudioSource powerupAudioSource;
     public AudioSource cheeseAudioSource; 
     public AudioSource redbullAudioSource; 
+    public AudioSource cantTouchThisAudioSource; 
+    public AudioSource powerDownAudioSource; 
 
     public bool isGrounded = false; 
 
@@ -84,6 +86,8 @@ public class CollisionTrigger : MonoBehaviour
             StartCoroutine(FlashScreen()); // Player flashes red
             Destroy(collision.gameObject); // Destroy obstacle
         }
+        else if (rainbowColors.isInvincible() == true && collision.gameObject.CompareTag("Obstacle"))
+            cantTouchThisAudioSource.Play();
     }
 
     // Credit: Chat GPT Flash red

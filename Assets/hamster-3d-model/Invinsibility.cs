@@ -8,12 +8,15 @@ public class RainbowColors : MonoBehaviour
     public Material mt;
     private Color32[] colors;
     private Color originalColor;
+    private int activeCycleCount = 0; 
+    private CollisionTrigger collision;
     private bool invincibilityState = false; // invincibility state
 
     // Start is called before the first frame update
     void Start()
     {
         mt = transform.GetComponent<MeshRenderer>().material;
+        collision = GetComponent<CollisionTrigger>();
         originalColor = mt.color;
         colors = new Color32[7]
         {
@@ -29,6 +32,7 @@ public class RainbowColors : MonoBehaviour
 
     public IEnumerator Cycle()
     {
+        activeCycleCount++;
         invincibilityState = true;
         int i = 0;
         float timer = 0f;
@@ -46,7 +50,13 @@ public class RainbowColors : MonoBehaviour
 
         Debug.Log("Rainbow effect stoppped after 6.5 seconds");
         mt.color = originalColor;
-        invincibilityState = false;
+
+        activeCycleCount--;
+        if (activeCycleCount == 0)
+        {
+            invincibilityState = false;
+            collision.powerDownAudioSource.Play();
+        }
     }
 
     public void StartRainbowCycle()
