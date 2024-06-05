@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI countLivesText;
     public TextMeshProUGUI countLevelText;
     public TextMeshProUGUI Tutorial;
-    public AudioSource backgroundMusic; 
+    public AudioSource backgroundMusic;
 
     public static GameManager Instance
     {
@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public int powerUpsHit = 0;
+    public static int powerUpsHit = 0;
     public int livesRemaining = 3;
     public int currentLevel = 1;
     public int scoreAdd = 1;

@@ -9,12 +9,11 @@ using TMPro;
 public class GameOver : MonoBehaviour
 {
     //public Copy gameManager;
-    //public TextMeshProUGUI ScoreText;
+    public TextMeshProUGUI ScoreText;
 
     void Start()
-    {
-        //gameManager = GameManager.Instance;
-        //ScoreText.text = "SCORE:"; //+ gameManager.powerUpsHit.ToString();
+    { 
+        ScoreText.text = "SCORE:" + GameManager.powerUpsHit.ToString();
     }
 
     public void RestartButton()
