@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
     public float timeBetweenLevels;
     public float delay = 10f;
     private int numberOfLevels = 4;
+    public GameObject lvlBackground;
+    public GameObject lvlBackgroundFar;
 
     // Variables for managing level increases
     // public int obstacleCountIncrease = 2;
@@ -162,6 +164,10 @@ public class GameManager : MonoBehaviour
         SetCountLevelText();
         IncreaseObstacleCount();
         IncreaseWheelSpeed();
+
+        lvlBackground.transform.position += new Vector3(270.0f, 0.0f, 0.0f);
+        lvlBackgroundFar.transform.position += new Vector3(270.0f, 0.0f, 0.0f);
+
 
         // Increase the pitch of the background music
         if (backgroundMusic != null)

@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &72204583 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 94d9f3416a790413bafd18b0bd5c0ed2, type: 3}
+  m_PrefabInstance: {fileID: 1601710626}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &80497004
 GameObject:
   m_ObjectHideFlags: 0
@@ -5937,6 +5942,8 @@ MonoBehaviour:
   scoreAdd: 1
   timeBetweenLevels: 60
   delay: 10
+  lvlBackground: {fileID: 72204583}
+  lvlBackgroundFar: {fileID: 1915643154}
   speedMultiplier: 1.5
 --- !u!1 &861400708
 GameObject:
@@ -6597,11 +6604,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 94d9f3416a790413bafd18b0bd5c0ed2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -75
+      value: -80
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 94d9f3416a790413bafd18b0bd5c0ed2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 218
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 94d9f3416a790413bafd18b0bd5c0ed2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6633,7 +6640,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 94d9f3416a790413bafd18b0bd5c0ed2, type: 3}
       propertyPath: m_Name
-      value: BackgroundLvl1Far
+      value: BackgroundInEditorFar
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 94d9f3416a790413bafd18b0bd5c0ed2, type: 3}
       propertyPath: m_IsActive
@@ -7762,7 +7769,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 94d9f3416a790413bafd18b0bd5c0ed2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -75
+      value: -80
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 94d9f3416a790413bafd18b0bd5c0ed2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7798,7 +7805,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 94d9f3416a790413bafd18b0bd5c0ed2, type: 3}
       propertyPath: m_Name
-      value: BackgroundLvl1
+      value: BackgroundInEditor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7897,6 +7904,11 @@ Rigidbody:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 646ed43bf5160468d88ca79794aa8541, type: 3}
   m_PrefabInstance: {fileID: 1981310047}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1915643154 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 94d9f3416a790413bafd18b0bd5c0ed2, type: 3}
+  m_PrefabInstance: {fileID: 1090743055}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1970492939
 PrefabInstance:
