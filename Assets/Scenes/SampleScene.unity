@@ -387,8 +387,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stamina: 100
   staminaBar: {fileID: 338039311}
-  dValue: 15
-  jumpDValue: 7.5
+  dValue: 30
+  jumpDValue: 10
   emptyDelay: 2.5
 --- !u!114 &338039311
 MonoBehaviour:
@@ -5802,7 +5802,6 @@ MonoBehaviour:
   countLevelText: {fileID: 2034814449}
   Tutorial: {fileID: 320930027}
   backgroundMusic: {fileID: 603363909}
-  powerUpsHit: 0
   livesRemaining: 3
   currentLevel: 1
   scoreAdd: 1
