@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI Tutorial;
     public AudioSource backgroundMusic;
 
+    public GameObject movingLevelTextPrefab;
+    public Transform wheel;
+
     public static GameManager Instance
     {
         get
@@ -147,12 +150,16 @@ public class GameManager : MonoBehaviour
 
     void LevelIncrease()
     {
+        // Have text for the new level appear 
+        Vector3 fixedSpawnPosition = new Vector3(52f, 14.5f, 23.5f);
+        Quaternion rotation = Quaternion.Euler(180, 0, 0);
+        // Instantiate the collectible at the fixed spawn position
+        GameObject movingLevelTextInstance = Instantiate(movingLevelTextPrefab, fixedSpawnPosition, rotation);
+
         currentLevel++;
         scoreAdd = (int)(scoreAdd * speedMultiplier);
+
         SetCountLevelText();
-
-        // Debug.Log("Level increased to " + currentLevel + ", speed multiplier is " + speedMultiplier);
-
         IncreaseObstacleCount();
         IncreaseWheelSpeed();
 
@@ -161,6 +168,14 @@ public class GameManager : MonoBehaviour
         {
             backgroundMusic.pitch += 0.3f;
         }
+
+
+        // Tie/parent the "Level Up!" text to the wheel 
+        movingLevelTextInstance.transform.parent = wheel;
+
+        // Rotate the collectible 90 degrees around the x-axis
+        movingLevelTextInstance.transform.Rotate(Vector3.right, 90f);
+
     }
 
     void IncreaseObstacleCount()
@@ -185,13 +200,4 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //void DecreaseCollectibleDeletionTime()
-    //{
-    //    ObstacleGenerator generator = FindObjectOfType<ObstacleGenerator>();
-    //    if (generator != null)
-    //    {
-    //        generator.collectibleLifetime /= speedMultiplier;
-    //        Debug.Log("Deletion time: " + generator.collectibleLifetime);
-    //    }
-    //}
 }

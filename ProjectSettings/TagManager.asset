@@ -12,6 +12,7 @@ TagManager:
   - Cheese
   - DeletionPlane
   - Redbull
+  - Text
   layers:
   - Default
   - TransparentFX

@@ -100,8 +100,8 @@ public class ObstacleGenerator : MonoBehaviour
                     // Spawn cheese: 40% chance out of power-up pool
                     collectiblePrefab = cheesePrefab;
 
-                    
-                }
+
+}
                 else
                 {
                     // Resting on bottom of wheel
@@ -110,7 +110,6 @@ public class ObstacleGenerator : MonoBehaviour
                     // Spawn carrot: 40% chance out of power-up pool
                     collectiblePrefab = carrotPrefab;
 
-                    
                 }
             }
         }
@@ -132,7 +131,7 @@ public class ObstacleGenerator : MonoBehaviour
         Vector3 collectiblePosition = fixedSpawnPosition + Vector3.right * laneOffset;
         collectibleInstance.transform.position = collectiblePosition;
 
-        string type = collectiblePrefab == twigPrefab || collectiblePrefab == rockPrefab ? "Obstacle" : "Power-up";
+        // string type = collectiblePrefab == twigPrefab || collectiblePrefab == rockPrefab ? "Obstacle" : "Power-up";
         // Debug.Log(type + " spawned in lane: " + laneOffset);
 
     }

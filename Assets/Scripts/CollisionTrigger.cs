@@ -58,7 +58,7 @@ public class CollisionTrigger : MonoBehaviour
             StartCoroutine(FlashGreen());
             Destroy(other.gameObject); // Destroy the obstacle
         }
-        else
+        else if (!other.gameObject.CompareTag("Text"))
         {
             Debug.Log("Collision with power-up!");
             gameManager.HandlePowerUpCollision();
